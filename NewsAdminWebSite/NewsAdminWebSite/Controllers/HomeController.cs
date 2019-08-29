@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NewsAdminWebSite.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +11,23 @@ namespace NewsAdminWebSite.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            NewsDatabaseEntities db = new NewsDatabaseEntities();
+
+            List<LoginViewModel> loginVMList = new List<LoginViewModel>();
+            LoginViewModel loginVM = new LoginViewModel();
+            foreach (Admin admin in db.Admins)
+            {
+                loginVM.Email = admin.Email;
+                loginVM.Password = admin.Password;
+                loginVMList.Add(loginVM);
+            }
+            foreach (Editor editor in db.Editors)
+            {
+                loginVM.Email = editor.Email;
+                loginVM.Password = editor.Password;
+                loginVMList.Add(loginVM);
+            }
+            return View(loginVMList);
         }
 
         public ActionResult About()

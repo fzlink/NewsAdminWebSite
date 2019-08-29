@@ -29,5 +29,12 @@ namespace NewsAdminWebSite.Models
         {
             return new ApplicationDbContext();
         }
+        public DbSet<Admin> Admins { get; set; }
+
+        public DbSet<Editor> Editors { get; set; }
+
+        public DbSet<User> Users { get; set; }
+
+        public DbSet<New> News { get; set; }
     }
 }

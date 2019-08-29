@@ -29,6 +29,13 @@ namespace NewsAdminWebSite
             bundles.Add(new ScriptBundle("~/bundles/admin").Include(
                       "~/Scripts/AdminMenu.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/ui").Include(
+                        "~/Scripts/login.js"
+                ));
+
+            bundles.Add(new ScriptBundle("~/Content/membership").Include(
+                        "~/Content/login.css"
+                ));
         }
     }
 }
